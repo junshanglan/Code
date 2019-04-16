@@ -26,7 +26,7 @@ public class MinCostClimbingStairs {
     }
 
     public static int minCostClimbingStairs(int[] cost) {
-        int len = cost.length;
+        /*int len = cost.length;
         if(len==2) {
             return Math.min(cost[0], cost[1]);
         }
@@ -40,6 +40,18 @@ public class MinCostClimbingStairs {
             }
             arr[i] = Math.min(arr[i-2],arr[i-1])+curr;
         }
-        return arr[len];
+        return arr[len];*/
+        // 状态方程： dp[i] = min( dp[i-2], dp[i-1] ) + cost[i];
+        // 优化
+        if (cost.length <=1) {
+            return cost.length == 0? 0 :cost[1];
+        }
+        int[] dp = new int[cost.length];
+        dp[0] = cost[0];
+        dp[1] = cost[1];
+        for (int i = 2; i < cost.length; i++) {
+            dp[i] = Math.min(dp[i-1],dp[i-2]) +cost[i];
+        }
+        return Math.min(dp[dp.length-1],dp[dp.length-2]);
     }
 }
