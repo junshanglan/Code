@@ -50,7 +50,7 @@ public class LetterCasePermutation {
         System.out.println(list.toString());
         return list;
     }
-
+    // 网上参考答案
     public static void dfs(String pre, String S, List<String> res, int index){
         System.out.println(pre+"-----------");
         // 判断结束的条件，因为没有for循环所以只能这么判断
