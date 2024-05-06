@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @Date：2024-04-26
  * @Author：landaguo
  */
-public class SanChaShu {
+public class 计算三叉搜索树的高度 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
