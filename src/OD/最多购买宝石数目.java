@@ -1,4 +1,4 @@
-package test;
+package OD;
 
 import java.util.Scanner;
 
