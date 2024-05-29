@@ -13,6 +13,7 @@ public class 围棋的气 {
     /**
      * 0 5 8 9 9 10
      * 5 0 9 9 9 8
+     * 8 7
      * @param args
      */
     public static void main(String[] args) {

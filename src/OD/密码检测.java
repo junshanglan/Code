@@ -8,6 +8,10 @@ import java.util.Scanner;
  */
 public class 密码检测 {
 
+    /**
+     * ABC<c89%000<
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();

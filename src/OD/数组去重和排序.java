@@ -14,6 +14,7 @@ public class 数组去重和排序 {
 
     /**
      * 1,3,3,3,2,4,4,4,5
+     * 3,4,1,2,5
      * @param args
      */
     public static void main(String[] args) {
