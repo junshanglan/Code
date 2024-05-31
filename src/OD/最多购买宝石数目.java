@@ -19,6 +19,8 @@ public class 最多购买宝石数目 {
      * 6
      * 7
      * 10
+     *
+     * 3
      * ==============
      * 9
      * 6
@@ -31,6 +33,8 @@ public class 最多购买宝石数目 {
      * 2
      * 4
      * 15
+     *
+     * 4
      * @param args
      */
     public static void main(String[] args) {
