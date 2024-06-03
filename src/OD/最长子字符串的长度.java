@@ -8,6 +8,18 @@ import java.util.Scanner;
  * @Author：landaguo
  */
 public class 最长子字符串的长度 {
+
+    /**
+     * alolobo
+     * 6
+     *
+     * looxdolx
+     *7
+     *
+     * bcbcbc
+     * 6
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();

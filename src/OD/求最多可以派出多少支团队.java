@@ -14,7 +14,7 @@ public class 求最多可以派出多少支团队 {
      * 5
      * 3 1 5 7 9
      * 8
-     * 3
+     * 答案：3
      *
      * 7
      * 3 1 5 7 9 2 6
@@ -29,25 +29,25 @@ public class 求最多可以派出多少支团队 {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = Integer.parseInt(scanner.nextLine());
-        int[] data = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-        int minCap = Integer.parseInt(scanner.nextLine());
-
-        int l = 0;
-        int r = n - 1;
-        int ans = 0;
-        Arrays.sort(data);
-
-        while (r >= 0 && data[r] >= minCap) {
-            r--;
-            ans++;
+        int n = scanner.nextInt();
+        int[] ability  = new int[n];
+        for (int i = 0; i < n; i++) {
+            ability[i] = scanner.nextInt();
         }
-        while (r > l ) {
-            if ((data[l] + data[r]) >= minCap) {
-                l++;
-                r--;
+        int low = scanner.nextInt();
+        int l = 0;
+        int r = ability.length - 1;
+        int ans = 0;
+        Arrays.sort(ability);
+        while (l < r) {
+            if (ability[r] >= low) {
                 ans++;
+                r--;
             }else{
+                if (ability[r] + ability[l] >= low) {
+                    ans++;
+                    r--;
+                }
                 l++;
             }
         }

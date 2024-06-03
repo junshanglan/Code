@@ -16,6 +16,8 @@ public class 最富裕的小家庭 {
      * 1 2
      * 1 3
      * 2 4
+     *
+     * 700
      * 用例二：
      * 5
      * 100 200 300 400 500
@@ -23,6 +25,8 @@ public class 最富裕的小家庭 {
      * 3 5
      * 1 3
      * 1 2
+     *
+     * 1200
      * @param args
      */
     public static void main(String[] args) {

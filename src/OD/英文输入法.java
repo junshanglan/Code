@@ -12,6 +12,7 @@ import java.util.TreeSet;
  */
 public class 英文输入法 {
     /**
+     * 知识点：
      * [^a-zA-Z]
      * 去匹配目标字符串中非a—z也非A—Z的字符.
      *

@@ -12,6 +12,7 @@ public class 游戏分组 {
 
     /**
      * 5 1 8 3 4 6 7 10 9 2
+     * 暴力算法 计算组合
      * @param args
      */
     public static void main(String[] args) {
