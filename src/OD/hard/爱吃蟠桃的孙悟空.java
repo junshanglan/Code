@@ -1,4 +1,4 @@
-package OD.CD;
+package OD.hard;
 
 import java.util.Arrays;
 import java.util.Scanner;

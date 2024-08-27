@@ -1,4 +1,4 @@
-package OD;
+package OD.easy;
 
 import java.util.ArrayList;
 import java.util.List;

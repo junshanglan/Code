@@ -1,4 +1,4 @@
-package OD;
+package OD.easy;
 
 import java.util.Scanner;
 import java.util.StringJoiner;

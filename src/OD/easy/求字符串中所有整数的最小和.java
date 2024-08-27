@@ -1,4 +1,4 @@
-package OD;
+package OD.easy;
 
 import java.math.BigInteger;
 import java.util.Scanner;

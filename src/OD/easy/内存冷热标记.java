@@ -1,4 +1,4 @@
-package OD;
+package OD.easy;
 
 import java.util.HashMap;
 import java.util.Map;
