@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringJoiner;
 
+/**
+ * 动态规划
+ */
 public class 伐木工 {
-
 
     static class Wood{
         // 收益
