@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * @Description：
+ * @Description：  回溯算法、排列问题
  * @Date：2024-09-14
  * @Author：landaguo
  */

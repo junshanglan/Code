@@ -2,7 +2,10 @@ package OD.hard;
 
 import java.util.Scanner;
 
-public class FamilyDay {
+/**
+ * 动态规划
+ */
+public class 园区参观路径 {
 
     /**
      *  3 3
