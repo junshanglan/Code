@@ -3,11 +3,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder("1234567890");
+        sb.delete(2,5);
+        System.out.println(sb);
 
-        int[] arr = Arrays.stream(sc.nextLine().split("")).mapToInt(Integer::parseInt).toArray();
-
-        System.out.println(getResult(arr));
     }
 
     public static int getResult(int[] arr) {
