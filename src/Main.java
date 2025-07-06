@@ -6,6 +6,8 @@ public class Main {
         StringBuilder sb = new StringBuilder("1234567890");
         sb.delete(2,5);
         System.out.println(sb);
+        System.out.println(111);
+        System.out.println(222);
 
     }
 

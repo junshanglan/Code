@@ -3,7 +3,8 @@ package OD.T_2025;
 import java.util.Scanner;
 
 /**
- * @Description：
+ * @Description：使用回溯法进行求解，
+ * 组合问题
  * @Date：2025-05-28
  * @Author：landaguo
  */

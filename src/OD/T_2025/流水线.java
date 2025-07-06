@@ -20,8 +20,9 @@ public class 流水线 {
             task[i ] = scanner.nextInt();
         }
         Arrays.sort(task);
+        // 流水线数与作业数
         if (n <= m) {
-            System.out.println(task[0]);
+            System.out.println(task[n-1]);
             return;
         }
         int[] resArr = new int[m];
