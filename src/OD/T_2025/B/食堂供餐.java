@@ -1,4 +1,4 @@
-package OD.T_2025;
+package OD.T_2025.B;
 
 import java.util.Arrays;
 import java.util.Scanner;
