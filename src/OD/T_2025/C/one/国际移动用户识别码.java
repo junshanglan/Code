@@ -1,4 +1,4 @@
-package OD.T_2025.C;
+package OD.T_2025.C.one;
 
 import java.util.ArrayList;
 import java.util.Collections;
