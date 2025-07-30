@@ -22,7 +22,9 @@ public class 比赛的冠亚季军 {
         complete(athletes,winner,loser);
 
         Collections.sort(winner);
-        Collections.sort(winner);
+        Collections.sort(loser);
+
+        System.out.println(winner.get(0).id + " " + winner.get(1).id + " " + loser.get(0).id);
     }
 
     public static void complete(List<Athlete> all,List<Athlete> winner,List<Athlete> loser){
@@ -30,6 +32,14 @@ public class 比赛的冠亚季军 {
         for (int i = 0; i < all.size(); i+=2) {
             int len = all.size();
             Athlete one = all.get(i);
+            if (i == len - 1){
+                result.add(one);
+                if (len == 3){
+                    winner.add(one);
+                }
+                // break
+                break;
+            }
             Athlete two = all.get(i + 1);
             if (one.score >= two.score) {
                 result.add(one);
@@ -39,13 +49,13 @@ public class 比赛的冠亚季军 {
                 }
             }else{
                 result.add(two);
-                if (len <= 4) {
+                 if (len <= 4) {
                     winner.add(two);
                     loser.add(one);
                 }
             }
         }
-        if (all.size() > 3) {
+        if (result.size() >= 3) {
             complete(result,winner,loser);
         }
     }
@@ -66,8 +76,8 @@ class Athlete implements Comparable<Athlete>{
     public int compareTo(Athlete o) {
         // 分数大的在前，若相等，id小的在前
         if (this.score != o.score) {
-            return this.score.compareTo(o.score);
+            return o.score.compareTo(this.score);
         }
-        return this.id - o.id;
+        return o.id - this.id ;
     }
 }
