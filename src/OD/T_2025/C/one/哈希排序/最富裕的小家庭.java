@@ -1,4 +1,4 @@
-package OD.T_2025.C.one;
+package OD.T_2025.C.one.哈希排序;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package OD.T_2025.C.two;
+package OD.T_2025.C.two.bfs;
 
 import java.util.Arrays;
 import java.util.LinkedList;

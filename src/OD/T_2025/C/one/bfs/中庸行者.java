@@ -1,8 +1,9 @@
-package OD.T_2025.C.one;
+package OD.T_2025.C.one.bfs;
 
 import java.util.Scanner;
 
 /**
+ * DFS
  */
 public class 中庸行者 {
 

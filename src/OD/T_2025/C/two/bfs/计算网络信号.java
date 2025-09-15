@@ -1,4 +1,4 @@
-package OD.T_2025.C.two;
+package OD.T_2025.C.two.bfs;
 
 import java.util.LinkedList;
 import java.util.Queue;
