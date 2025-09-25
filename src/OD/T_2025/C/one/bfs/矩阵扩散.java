@@ -6,10 +6,12 @@ import java.util.Queue;
 import java.util.Scanner;
 
 /**
+ * 多源BFS算法
+ *
  * 4,4,0,0,3,3
  * 输出 ：2
  *
-
+ *
  */
 public class 矩阵扩散 {
 

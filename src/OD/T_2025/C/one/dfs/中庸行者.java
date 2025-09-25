@@ -1,4 +1,4 @@
-package OD.T_2025.C.one.bfs;
+package OD.T_2025.C.one.dfs;
 
 import java.util.Scanner;
 
