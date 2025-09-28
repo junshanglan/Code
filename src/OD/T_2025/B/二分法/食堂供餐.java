@@ -1,4 +1,4 @@
-package OD.T_2025.B;
+package OD.T_2025.B.二分法;
 
 import java.util.Arrays;
 import java.util.Scanner;

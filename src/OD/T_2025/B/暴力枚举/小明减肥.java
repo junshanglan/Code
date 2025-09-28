@@ -1,4 +1,4 @@
-package OD.T_2025.B;
+package OD.T_2025.B.暴力枚举;
 
 import java.util.Scanner;
 
