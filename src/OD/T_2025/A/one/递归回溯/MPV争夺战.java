@@ -29,7 +29,7 @@ public class MPV争夺战 {
                 continue;
             }
 
-            sum / count
+            //sum / count
         }
 
         //
