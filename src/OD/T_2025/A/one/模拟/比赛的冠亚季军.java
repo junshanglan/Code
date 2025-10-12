@@ -33,14 +33,18 @@ public class 比赛的冠亚季军 {
                 }
                 break;
             }
-            if (one.score > two.score){
-                winner.add(one);
-                loser.add(two);
+            if (one.score >= two.score){
                 result.add(one);
+                if (len <= 4) {
+                    winner.add(one);
+                    loser.add(two);
+                }
             }else{
-                winner.add(two);
-                loser.add(one);
                 result.add(two);
+                if (len <= 4){
+                    winner.add(two);
+                    loser.add(one);
+                }
             }
         }
         if (result.size() >= 3){
@@ -64,6 +68,6 @@ class Athlete implements Comparable<Athlete>{
         if (this.score == o.score){
             return this.id - o.id;
         }
-        return this.score - o.score;
+        return o.score - this.score;
     }
 }
