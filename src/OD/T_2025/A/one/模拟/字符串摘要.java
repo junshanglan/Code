@@ -2,6 +2,18 @@ package OD.T_2025.A.one.模拟;
 
 import java.util.*;
 
+/**
+ * abcabc
+ * 输出：a1b1c1a0b0c0
+ *
+ * aabbcc
+ * 输出：a2b2c2
+ * bAaAcBb
+ * a3b2b2c0
+ *
+ * aabcccba
+ * 输出：c3a2b1a0b0
+ */
 class Alp implements Comparable<Alp>{
     Character c;
     int num;
@@ -34,26 +46,23 @@ public class 字符串摘要 {
                 charList.add(input.charAt(i));
             }
         }
-        Map<Character,Integer> countMap = new HashMap<>();
         List<Alp> result = new ArrayList<>();
         for (int i = 0; i < charList.size();) {
+            if (i == charList.size() - 1) {
+                result.add(new Alp(charList.get(i),0));
+            }
             // 统计的 map中没有
-            if (countMap.get(charList.get(i))  == null){
-                if (charList.get(i) == charList.get(i + 1)){
-                    int res = countContinueAlp(charList, i );
-                    countMap.put(charList.get(i),res);
-                    result.add(new Alp(charList.get(i),res));
-                    i = i + res ;
-                }else{
-                    // 统计后面出现的字符个数
-                    int res  = countNoContinue(charList,i);
-                    countMap.put(charList.get(i),res);
-                    result.add(new Alp(charList.get(i),res));
-                    i++;
-                }
+            if (charList.get(i) == charList.get(i + 1)){
+                int res = countContinueAlp(charList, i );
+                result.add(new Alp(charList.get(i),res));
+                i = i + res ;
             }else{
+                // 统计后面出现的字符个数
+                int res  = countNoContinue(charList,i);
+                result.add(new Alp(charList.get(i),res));
                 i++;
             }
+
         }
         Collections.sort(result);
         StringBuilder sb = new StringBuilder();
