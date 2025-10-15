@@ -1,7 +1,5 @@
 package OD.T_2025.A.one.正则;
 
-import com.apple.laf.AquaInternalFramePaneUI;
-
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
