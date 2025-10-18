@@ -47,7 +47,12 @@ public class 单词接龙 {
         String res = currStr;
         while(!currStr.isEmpty()) {
             if (data.get(endChar) != null) {
-                data.get(endChar).sort(new CustomComparator());
+                data.get(endChar).sort((a,b) -> {
+                    if (a.length() != b.length()) {
+                        return b.length() - a.length();
+                    }
+                    return a.compareTo(b);
+                });
                 res += data.get(endChar).get(0);
                 currStr = data.get(endChar).get(0);
                 data.get(endChar).remove(0);
