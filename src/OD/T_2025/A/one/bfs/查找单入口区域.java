@@ -1,8 +1,6 @@
 package OD.T_2025.A.one.bfs;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class 查找单入口区域 {
     //
@@ -19,98 +17,63 @@ public class 查找单入口区域 {
                 matrix[i][j] = scanner.next().charAt(0);
             }
         }
-        int res = Integer.MIN_VALUE;
-        int[] resPos = new int[2];
-        boolean flag = false;
         // 入口只能在四条边上
+        List<Pair> result = new ArrayList<>();
+        boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-
-                if (isBorderPos(i,j)){
-
-                }
-                // 上下两条边
-                if ((i == 0 || i == m - 1) && (j != 0 && j != n - 1)) {
-                    if (matrix[i][j] == 'O' && matrix[i][j - 1] != 'O' && matrix[i][j + 1] != 'O') {
-                        Queue<int[]> queue = new LinkedList<>();
-                        queue.add(new int[]{i, j});
-                        boolean[][] visited = new boolean[m][n];
-                        visited[i][j] = true;
-                        int tmp = bfs(queue, matrix, visited);
-                        if (tmp == res) {
-                            flag = true;
-                        }
-                        if (tmp > res) {
-                            res = tmp;
-                            resPos[0] = i;
-                            resPos[1] = j;
-                        }
-
-                    }
-                }
-                // 左右两条边
-                if ((j == 0 || j == n - 1) && (i != 0 && i != m - 1)) {
-                    if (matrix[i][j] == 'O' && matrix[i - 1][j] != 'O' && matrix[i + 1][j] != 'O') {
-                        Queue<int[]> queue = new LinkedList<>();
-                        queue.add(new int[]{i, j});
-                        boolean[][] visited = new boolean[m][n];
-                        visited[i][j] = true;
-                        int tmp = bfs(queue, matrix, visited);
-                        if (tmp == res) {
-                            flag = true;
-                        }
-                        if (tmp > res) {
-                            res = tmp;
-                            resPos[0] = i;
-                            resPos[1] = j;
-                        }
+                // 假设是入口
+                if (matrix[i][j] == 'O' && !visited[i][j]){
+                    List<String> entry = new ArrayList<>();
+                    int res = bfs(i, j,visited, matrix, entry);
+                    if (entry.size() == 1){
+                        result.add(new Pair(res,entry.get(0)));
                     }
                 }
             }
         }
-        if (res == Integer.MIN_VALUE) {
+        if (result.size() == 0) {
             System.out.println("NULL");
-        } else {
-            if (flag) {
-                System.out.println(res);
-            } else {
-                System.out.println(resPos[0] + " " + resPos[1] + " " + res);
+        }else if (result.size() == 1){
+            System.out.println(result.get(0).pos + " " + result.get(0).zone);
+        }else{
+            result.sort( (a,b) -> {
+                return b.zone - a.zone;
+            });
+            if (result.get(0).zone == result.get(1).zone) {
+                System.out.println(result.get(0).zone);
+            }else{
+                System.out.println(result.get(0).pos + " "  + result.get(0).zone);
             }
         }
+
     }
 
-    private static int bfs(Queue<int[]> queue, Character[][] matrix, boolean[][] visited) {
-        int res = 1;
+    private static int bfs(int x,int y,boolean[][] visited, Character[][] matrix,List<String> entrance) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{x,y});
+        visited[x][y] = true;
+        int res = 0;
         while (!queue.isEmpty()) {
             int[] pos = queue.poll();
-            int x = pos[0];
-            int y = pos[1];
+             x = pos[0];
+             y = pos[1];
+             if (x == 0 || y == 0 || x == m -1 || y == n-1) {
+                 entrance.add(x + " " + y);
+             }
+             res++;
             for (int[] dir : directions) {
                 int newX = x + dir[0];
                 int newY = y + dir[1];
-                if (newX <= 0 || newX >= m - 1 || newY <= 0 || newY >= n - 1) {
-                    if (matrix[newX][newY] == 'O') {
-                        return 0;
-                    }
-                } else {
-                    if (!visited[newX][newY] && matrix[newX][newY] == 'O') {
-                        res++;
-                        visited[newX][newY] = true;
-                        queue.add(new int[]{newX, newY});
-                    }
+                if (newX >= 0 && newX <= m - 1 && newY >= 0 && newY <= n - 1 && !visited[newX][newY] && matrix[newX][newY] == 'O') {
+                    visited[newX][newY] = true;
+                    queue.add(new int[]{newX, newY});
                 }
             }
         }
         return res;
     }
 
-    private static boolean isSingleEntrance(int x, int y,Character[][] matrix) {
-        if (x == 0 && y == 0 && matrix[0][1] != 'O' && matrix[1][0] != 'O')
-        if (x == 0 || x == m - 1 || y == 0 || y == n -1) {
-            return true;
-        }
-        return false;
-    }
 }
 
 class Pair{
