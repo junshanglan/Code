@@ -1,5 +1,6 @@
 package OD.T_2025.A.two.bfs;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -34,41 +35,46 @@ public class 亲子游戏 {
     private static int bfs(int[] start,int[][] matrix){
         int[][] directions = new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
         int[][] candy = new int[n][n];
-        boolean[][] visited = new boolean[n][n];
 
+        for (int[] ints : candy) {
+            Arrays.fill(ints,-1);
+        }
+        candy[start[0]][start[1]] = 0;
         Queue<int[]> queue = new LinkedList<>();
         queue.add(start);
-        boolean flag = false;
         int res = 0;
-        while(!queue.isEmpty()){
-            int[] q = queue.poll();
-            for (int[] pos: directions) {
-                int x = q[0];
-                int y = q[1];
-                int newX = q[0] + pos[0];
-                int newY = q[1] + pos[1];
-                // 当前位置越界
-                if (newX < 0 || newX > n - 1 || newY < 0 || newY > n - 1) {
-                    continue;
-                }
-                // 障碍物
-                if (matrix[newX][newY] == -1) continue;
-                // 第一次访问
-                if (candy[newX][newY] == -1 && !visited[newX][newY]) {
-                    visited[newX][newY] = true;
-                    queue.add(new int[]{newX,newY});
-                }
+        while (!queue.isEmpty()){
+            boolean flag = false;
+            Queue<int[]> nextQueue = new LinkedList<>();
+            while(!queue.isEmpty()){
+                int[] q = queue.poll();
+                for (int[] pos: directions) {
+                    int x = q[0];
+                    int y = q[1];
+                    int newX = q[0] + pos[0];
+                    int newY = q[1] + pos[1];
+                    // 当前位置越界
+                    if (newX < 0 || newX > n - 1 || newY < 0 || newY > n - 1) {
+                        continue;
+                    }
+                    // 障碍物
+                    if (matrix[newX][newY] == -1) continue;
+                    // 第一次访问
+                    if (candy[newX][newY] == -1) {
+                        nextQueue.add(new int[]{newX,newY});
+                    }
+                    candy[newX][newY]  = Math.max(candy[newX][newY],candy[x][y] + Math.max(0,matrix[newX][newY]));
 
-                candy[newX][newY]  = Math.max(candy[newX][newY],candy[x][y] + Math.max(0,matrix[newX][newY]));
+                    if (matrix[newX][newY] == -2){
+                        res = candy[newX][newY];
+                        flag = true;
+                    }
 
-                if (matrix[newX][newY] == -2){
-                    res = candy[newX][newY];
-                    flag = true;
                 }
-
             }
+            if (flag) return res;
+            queue = nextQueue;
         }
-        if (flag) return res;
         return -1;
     }
 }
