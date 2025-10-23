@@ -24,24 +24,26 @@ public class 区间交集 {
             for (int j = i+ 1; j < n; j++) {
                 int[] two = inputList.get(j);
                 if (two[0] <= one[1]) {
-                    mergeList.add(new int[]{one[0], Math.min(one[1],two[1])});
+                    mergeList.add(new int[]{two[0], Math.min(one[1],two[1])});
                 }
             }
         }
         if (mergeList.isEmpty()) {
             System.out.println("None");
+            return;
         }
         mergeList.sort(Comparator.comparing((int[] a) -> a[0]).thenComparing(a -> a[1]));
         int[] prev = mergeList.get(0);
-        List<int[]> resultList = new ArrayList<>();
         for (int i = 1; i < mergeList.size(); i++) {
             int[] cur = mergeList.get(i);
             if(prev[1] >= cur[0]){
-                resultList.add(new int[]{prev[0],cur[1]});
+                prev[1] = Math.max(prev[1],cur[1]);
             }else{
+                System.out.println(prev[0] + " " + prev[1]);
                 prev = cur;
             }
         }
+        System.out.println(prev[0] + " " + prev[1]);
 
     }
 }
