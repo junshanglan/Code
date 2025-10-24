@@ -1,5 +1,7 @@
 package OD.T_2025.A.two.区间;
 
+import com.sun.glass.ui.Size;
+
 import java.util.*;
 
 public class 区间连接器 {
@@ -28,8 +30,18 @@ public class 区间连接器 {
         }
         Collections.sort(dist);
         Collections.sort(connectList);
-
-        System.out.println(1);
+        int i = 0 ,j = 0;
+        int res = 0;
+        while (i < dist.size() && j < connectList.size()) {
+            if (connectList.get(j) >= dist.get(i)) {
+                i++;
+                j++;
+                res++;
+            }else{
+                j++;
+            }
+        }
+        System.out.println(mergeList.size() - res);
     }
 
     private static List<int[]> mergeList(List<int[]> ans){
