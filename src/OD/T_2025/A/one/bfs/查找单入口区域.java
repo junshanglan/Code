@@ -2,6 +2,9 @@ package OD.T_2025.A.one.bfs;
 
 import java.util.*;
 
+/**
+ * 复刷
+ */
 public class 查找单入口区域 {
     //
     static int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
