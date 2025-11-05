@@ -5,7 +5,6 @@ import java.util.*;
 public class 符合条件的元组个数 {
 
     static int k,target,n;
-    static boolean[] visited ;
     static int[]  array;
     static int res;
     static List<List<Integer>> numberList = new ArrayList<>();
@@ -15,7 +14,6 @@ public class 符合条件的元组个数 {
         n = array.length;
         k = scanner.nextInt();
         target = scanner.nextInt();
-        visited = new boolean[n];
         dfs(0,new ArrayList<>());
         System.out.println(res);
     }

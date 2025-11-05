@@ -2,6 +2,9 @@ package OD.T_2025.A.one.模拟;
 
 import java.util.*;
 
+/**
+ * 优先队列
+ */
 public class AI面板识别 {
 
     public static void main(String[] args) {
