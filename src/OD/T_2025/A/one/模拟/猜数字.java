@@ -3,6 +3,8 @@ package OD.T_2025.A.one.模拟;
 import java.util.Scanner;
 
 /**
+ * 数据量小，枚举所有值进行匹配
+ *
  * 6
  * 4815 1A1B
  * 5716 0A1B
@@ -49,8 +51,6 @@ public class 猜数字 {
                 for (int j = 0; j < 10; j++) {
                     countB += Math.min(v1[j],v2[j]);
                 }
-                String expect = String.format("%dA%dB",countA,countB);
-
                 if (!guess.equals(countA + "A" + countB + "B")) {
                     isMatch = false;
                     break;
