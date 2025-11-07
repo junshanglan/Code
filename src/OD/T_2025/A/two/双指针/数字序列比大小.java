@@ -26,13 +26,13 @@ public class 数字序列比大小 {
                 aLeft++;
                 bRight--;
             }else{
-                // 考虑相等情况
+                // 考虑相等情况[3,4] [2,4]
                 if (aArr[aLeft] > bArr[bLeft]) {
                     ans++;
                     aLeft++;
                     bLeft++;
                 }else{
-                    // aleft 不大于bLeft ,可能小于等于
+                    // aleft 不大于bLeft ,可能小于等于 [2,5]  [3,5]
                     if (bArr[bRight] > aArr[aLeft]) {
                         ans--;
                     }

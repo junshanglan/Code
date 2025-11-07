@@ -36,9 +36,11 @@ public class 区间交集 {
         int[] prev = mergeList.get(0);
         for (int i = 1; i < mergeList.size(); i++) {
             int[] cur = mergeList.get(i);
+            // 有交集，合并区间
             if(prev[1] >= cur[0]){
                 prev[1] = Math.max(prev[1],cur[1]);
             }else{
+                // 没有交集，输出区间，再进行下一轮比较
                 System.out.println(prev[0] + " " + prev[1]);
                 prev = cur;
             }
