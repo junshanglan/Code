@@ -34,7 +34,7 @@ public class 找到它 {
                     boolean[][] visited = new boolean[n][m];
                     visited[i][j] = true;
                     dfs(i,j,1,visited);
-                    visited[i][j] = true;
+                    visited[i][j] = false;
                     if (isFind) {
                         res = (i + 1) + " " + (j + 1);
                         break;
