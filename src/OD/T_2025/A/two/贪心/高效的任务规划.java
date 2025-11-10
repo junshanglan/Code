@@ -22,7 +22,7 @@ public class 高效的任务规划 {
     }
 
     private static int getMinTime(List<Task> taskList){
-        taskList.sort((a, b) -> b.configTime - a.configTime);
+        taskList.sort((a, b) -> b.workTime - a.workTime);
         int res = 0;
         int lastConfigTime = 0;
         for (int i = 0; i < taskList.size(); i++) {

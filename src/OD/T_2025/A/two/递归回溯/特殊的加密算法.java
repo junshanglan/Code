@@ -45,6 +45,7 @@ public class 特殊的加密算法 {
             if (!found || minStr.compareTo(currentStr) > 0) {
                 minStr = currentStr;
             }
+            found = true;
             return;
         }
         if (x < 0 || x >= m || y < 0 || y >= m ||visited[x][y] || books[x][y] != plainText[index]){
