@@ -9,38 +9,31 @@ public class 两数相加 {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        List<Integer> one = new ArrayList<>();
-        List<Integer> two = new ArrayList<>();
-        ListNode tmpOne = l1;
-        while (tmpOne != null) {
-            one.add(tmpOne.val);
-            tmpOne = tmpOne.next;
+        ListNode head = null,tail= null;
+        int carry = 0;
+        while (l1 != null || l2 != null){
+            int n1 = l1 != null ? l1.val : 0;
+            int n2 = l2 != null ? l2.val : 0;
+            int sum = n1 + n2 + carry;
+            int tmp = sum % 10;
+            if (head == null) {
+                head = tail = new ListNode(tmp);
+            }else{
+                tail.next = new ListNode(tmp);
+                tail = tail.next;
+            }
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+            carry = sum /10;
         }
-        ListNode tmpTwo = l2;
-        while (tmpTwo != null) {
-            two.add(tmpTwo.val);
-            tmpTwo = tmpTwo.next;
+        if (carry != 0) {
+            tail.next = new ListNode(carry);
         }
-        StringBuilder sb1 = new StringBuilder();
-        for (int i = one.size() - 1; i >= 0; i--) {
-            sb1.append(one.get(i));
-        }
-        StringBuilder sb2 = new StringBuilder();
-        for (int i = two.size() - 1; i >= 0; i--) {
-            sb2.append(two.get(i));
-        }
-        Long numOne = Long.valueOf(sb1.toString());
-        Long numTwo = Long.valueOf(sb2.toString());
-        long result = numOne + numTwo;
-        String resultStr = String.valueOf(result);
-        ListNode resultNode = new ListNode(resultStr.charAt(0));
-        ListNode next = resultNode.next;
-        for (int i = 1; i < resultStr.length(); i++) {
-            ListNode tmpNode = new ListNode(resultStr.charAt(i));
-            next = tmpNode;
-            next = next.next;
-        }
-        return resultNode;
+        return head;
     }
 }
 
