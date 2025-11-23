@@ -1,19 +1,17 @@
 package leetcode.middle.字符串;
 
 public class 最长回文子串 {
-
     public static String longestPalindrome(String s) {
-        if (s.length() < 2) {
+        if (s.length() == 1) {
             return s;
         }
-        String res = s.charAt(0) + "";
+        String res = "";
         for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j < s.length(); j++) {
-                StringBuilder substring = new StringBuilder(s.substring(i, j + 1));
+            for (int j = i; j < s.length(); j++) {
+                String substring = s.substring(i, j + 1);
                 if (substring.length() > res.length()) {
-                    StringBuilder reverse = new StringBuilder(substring);
-                    if (substring.toString().equals(reverse.reverse().toString())){
-                        res = substring.toString();
+                    if (reverseEqual(substring)) {
+                        res = substring;
                     }
                 }
             }
@@ -21,31 +19,20 @@ public class 最长回文子串 {
         return res;
     }
 
-    public static void main(String[] args) {
-        System.out.println(longestPalindrome("babad"));
-        StringBuilder abab = new StringBuilder("abab");
-        System.out.println(abab.reverse().equals("abab"));
+    private static boolean reverseEqual(String s){
+        int left = 0,right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 
-    /**
-     * 
-     */
-//    public static String longestPalindrome(String s) {
-//        if (s.length() < 2) {
-//            return s;
-//        }
-//        String res = s.charAt(0) + "";
-//        for (int i = 0; i < s.length(); i++) {
-//            for (int j = i + 1; j < s.length(); j++) {
-//                StringBuilder substring = new StringBuilder(s.substring(i, j + 1));
-//                if (substring.length() > res.length()) {
-//                    StringBuilder reverse = new StringBuilder(substring);
-//                    if (substring.toString().equals(reverse.reverse().toString())){
-//                        res = substring.toString();
-//                    }
-//                }
-//            }
-//        }
-//        return res;
-//    }
+    public static void main(String[] args) {
+        String a = longestPalindrome("ab");
+        System.out.println(a);
+    }
 }
